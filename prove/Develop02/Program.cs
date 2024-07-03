@@ -1,29 +1,61 @@
 using System;
+using System.IO;
+
+
 
 class Program
 {
     static void Main(string[] args)
     {
-        Job job1 = new Job();
-        job1._jobTitle = "Sofware Engineer";
-        job1._company = "Microsoft";
-        job1._startYear = 2015;
-        job1._endYear = 2018;
+        bool game_active = true;
+        Console.WriteLine("Welcome to Journal");
+        List<Prompts> entries = new List<Prompts>();
+        while (game_active == true)
+        {
+            Console.WriteLine("What would you like to do?: ");
+            Console.WriteLine("1. Write in Journal");
+            Console.WriteLine("2. Display current entries");
+            Console.WriteLine("3. Load");
+            Console.WriteLine("4. Save");
+            Console.WriteLine("5. Quit");
+            int user_input = Convert.ToInt32(Console.ReadLine());
 
-        Job job2 = new Job();
-        job2._jobTitle = "Manager";
-        job2._company = "Chicfila";
-        job2._startYear = 2010;
-        job2._endYear = 2015;
+            if (user_input == 1)
+            {
+                Prompts prompt01 = new Prompts();
+                prompt01.Pick_and_ask_q();
+                entries.Add(prompt01);
+            }else if (user_input == 2)
+            {
+                foreach (Prompts entry in entries)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine($"{entry._datenow} {entry._pickedq} {entry._J_entry}");
+                } 
+            }else if (user_input == 3)
+            {
+                Saving load01 = new Saving();
+                Console.WriteLine("What is the file name?");
+                load01._filename = Console.ReadLine();
+                entries = load01.FromTxt();
+            }else if (user_input == 4)
+            {
+                Saving save01 = new Saving();
+                Console.WriteLine("What is the Filename:");
+                save01._filename = Console.ReadLine();
+                save01.ToTxt(entries);
+            }else if (user_input == 5)
+            {
+                break;
+            }
+            
+            
+            else{}
+            
+        }
+        
 
-
-        Resume my_resume = new Resume();
-        my_resume._name = "Erick";
-
-        my_resume._jobs.Add(job1);
-        my_resume._jobs.Add(job2);
-
-        my_resume.Display();
     }
+    
 }
 
