@@ -30,12 +30,12 @@ class Program
                 foreach (Prompts entry in entries)
                 {
                     Console.WriteLine("");
-                    Console.WriteLine($"{entry._datenow} {entry._pickedq} {entry._J_entry}");
+                    Console.WriteLine($"Date: {entry._datenow} Prompt - {entry._pickedq} \n{entry._J_entry}");
                 } 
             }else if (user_input == 3)
             {
                 Saving load01 = new Saving();
-                Console.WriteLine("What is the file name?");
+                Console.WriteLine("What is the name of the file you'd like to load?");
                 load01._filename = Console.ReadLine();
                 entries = load01.FromTxt();
             }else if (user_input == 4)
@@ -50,7 +50,7 @@ class Program
             }
             
             
-            else{}
+            else{Console.WriteLine("Please enter a valid input...");}
             
         }
         

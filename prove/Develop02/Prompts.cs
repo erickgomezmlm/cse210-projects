@@ -1,6 +1,6 @@
 public class Prompts
 {
-    public string[] _questions = {"will you?", "can you?", "do you?"};
+    public string[] _questions = {"If you could do something differently today, What would it be?", "What was the best part of your day?", "What was a challenge you faced today?", "What is something you want to take away from today?"};
     public string _datenow;
     public string _J_entry;
     public string _pickedq;
