@@ -1,0 +1,3 @@
+150
+1|sing|church|100|True
+2|read|10 mins|50

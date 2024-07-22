@@ -1,0 +1,2 @@
+0
+3|temple|3 times|50|500|3|False|0
